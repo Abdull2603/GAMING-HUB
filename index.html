@@ -1,0 +1,1318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090b12" />
+    <meta
+      name="description"
+      content="Gaming Hub is home to Pakistan's PUBG Mobile scrims, custom rooms, and cash prize events."
+    />
+    <title>Gaming Hub — Pakistan PUBG Mobile Tournaments</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #090b12;
+        --panel: #111520;
+        --panel-strong: #171d2b;
+        --line: #242d40;
+        --text: #f2f5fb;
+        --muted: #9aa6ba;
+        --purple: #a78bfa;
+        --cyan: #58e1dc;
+        --green: #b6f36b;
+        --max-width: 1160px;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 6rem;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background:
+          radial-gradient(ellipse at 82% 10%, rgb(91 65 171 / 15%), transparent 35rem),
+          radial-gradient(ellipse at 8% 38%, rgb(39 164 160 / 8%), transparent 30rem),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      button:focus-visible,
+      a:focus-visible,
+      summary:focus-visible {
+        outline: 3px solid var(--cyan);
+        outline-offset: 4px;
+      }
+
+      img,
+      svg {
+        display: block;
+      }
+
+      .container {
+        width: min(var(--max-width), calc(100% - 48px));
+        margin-inline: auto;
+      }
+
+      .site-header {
+        position: sticky;
+        z-index: 20;
+        top: 0;
+        border-bottom: 1px solid rgb(154 166 186 / 10%);
+        background: rgb(9 11 18 / 84%);
+        backdrop-filter: blur(18px);
+      }
+
+      .header-inner {
+        display: flex;
+        min-height: 76px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 11px;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border: 1px solid rgb(88 225 220 / 40%);
+        border-radius: 12px;
+        background: linear-gradient(145deg, rgb(88 225 220 / 18%), rgb(167 139 250 / 18%));
+        color: var(--cyan);
+        font-size: 15px;
+        font-weight: 900;
+        letter-spacing: -0.08em;
+        box-shadow: inset 0 0 18px rgb(88 225 220 / 8%);
+      }
+
+      .brand-name {
+        display: block;
+        font-size: 15px;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .brand-caption,
+      .eyebrow,
+      .tiny-label {
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 750;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .brand-caption {
+        display: block;
+        margin-top: 5px;
+        color: var(--cyan);
+        font-size: 9px;
+        letter-spacing: 0.12em;
+      }
+
+      .primary-nav {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .primary-nav a {
+        padding: 10px 12px;
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 650;
+        transition: color 160ms ease, background 160ms ease;
+      }
+
+      .primary-nav a:hover {
+        background: rgb(255 255 255 / 5%);
+        color: var(--text);
+      }
+
+      .header-cta,
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        padding: 0 18px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        background: linear-gradient(105deg, var(--cyan), #8bf0bb);
+        color: #071212;
+        font-size: 13px;
+        font-weight: 850;
+        transition: transform 160ms ease, filter 160ms ease, border-color 160ms ease;
+      }
+
+      .header-cta:hover,
+      .button:hover {
+        filter: brightness(1.08);
+        transform: translateY(-2px);
+      }
+
+      .button-secondary {
+        border-color: var(--line);
+        background: rgb(255 255 255 / 3%);
+        color: var(--text);
+      }
+
+      .button-secondary:hover {
+        border-color: rgb(88 225 220 / 55%);
+        filter: none;
+      }
+
+      .menu-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        cursor: pointer;
+      }
+
+      .menu-toggle svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 100px 0 76px;
+      }
+
+      .hero::before {
+        position: absolute;
+        top: 42px;
+        right: max(-80px, calc((100vw - var(--max-width)) / 2 - 160px));
+        width: 460px;
+        height: 460px;
+        border: 1px solid rgb(88 225 220 / 10%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 48px rgb(88 225 220 / 2%), 0 0 0 96px rgb(167 139 250 / 2%);
+        content: "";
+        pointer-events: none;
+      }
+
+      .hero-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+        align-items: center;
+        gap: 56px;
+      }
+
+      .hero-copy {
+        max-width: 650px;
+      }
+
+      .live-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 8px 12px;
+        border: 1px solid rgb(182 243 107 / 22%);
+        border-radius: 999px;
+        background: rgb(182 243 107 / 6%);
+        color: var(--green);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 12px rgb(182 243 107 / 80%);
+      }
+
+      .hero h1 {
+        max-width: 720px;
+        margin: 22px 0 18px;
+        font-size: clamp(42px, 6vw, 72px);
+        font-weight: 900;
+        letter-spacing: -0.065em;
+        line-height: 0.99;
+      }
+
+      .gradient-text {
+        background: linear-gradient(100deg, var(--cyan), var(--purple) 72%);
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-description {
+        max-width: 560px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .feature-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+        margin: 28px 0 0;
+        padding: 0;
+        color: #c3cada;
+        font-size: 12px;
+        list-style: none;
+      }
+
+      .feature-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .check {
+        color: var(--cyan);
+        font-weight: 900;
+      }
+
+      .hero-console {
+        position: relative;
+        padding: 22px;
+        border: 1px solid rgb(167 139 250 / 20%);
+        border-radius: 22px;
+        background:
+          linear-gradient(140deg, rgb(167 139 250 / 9%), transparent 45%),
+          linear-gradient(180deg, #151a27, #0d111a);
+        box-shadow: 0 28px 80px rgb(0 0 0 / 42%), inset 0 1px 0 rgb(255 255 255 / 5%);
+      }
+
+      .console-top,
+      .console-row,
+      .section-heading,
+      .section-heading-inner,
+      .card-heading,
+      .leaderboard-row,
+      .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .console-top {
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .console-title {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .console-live {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--green);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+      }
+
+      .map-art {
+        position: relative;
+        display: grid;
+        min-height: 220px;
+        overflow: hidden;
+        margin: 20px 0;
+        place-items: center;
+        border: 1px solid rgb(88 225 220 / 15%);
+        border-radius: 15px;
+        background:
+          linear-gradient(31deg, transparent 47%, rgb(88 225 220 / 12%) 48%, transparent 49%),
+          linear-gradient(146deg, transparent 47%, rgb(167 139 250 / 15%) 48%, transparent 49%),
+          radial-gradient(ellipse at 50% 50%, rgb(88 225 220 / 13%), transparent 50%),
+          repeating-linear-gradient(0deg, transparent 0 31px, rgb(255 255 255 / 3%) 32px),
+          repeating-linear-gradient(90deg, transparent 0 31px, rgb(255 255 255 / 3%) 32px),
+          #0b1118;
+      }
+
+      .map-ring {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border: 1px solid rgb(88 225 220 / 55%);
+        border-radius: 50%;
+        box-shadow: 0 0 36px rgb(88 225 220 / 14%), inset 0 0 32px rgb(88 225 220 / 8%);
+      }
+
+      .map-ring::before,
+      .map-ring::after {
+        position: absolute;
+        border: 1px solid rgb(167 139 250 / 38%);
+        border-radius: 50%;
+        content: "";
+        inset: 20px;
+      }
+
+      .map-ring::after {
+        border-color: rgb(88 225 220 / 28%);
+        inset: 42px;
+      }
+
+      .map-center {
+        z-index: 1;
+        display: grid;
+        width: 45px;
+        height: 45px;
+        place-items: center;
+        border: 1px solid rgb(88 225 220 / 55%);
+        border-radius: 50%;
+        background: #102124;
+        color: var(--cyan);
+        font-size: 12px;
+        font-weight: 900;
+        box-shadow: 0 0 24px rgb(88 225 220 / 25%);
+      }
+
+      .map-pin {
+        position: absolute;
+        top: 23%;
+        left: 67%;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--purple);
+        box-shadow: 0 0 14px var(--purple);
+      }
+
+      .map-pin.pin-two {
+        top: 68%;
+        left: 29%;
+        background: var(--cyan);
+        box-shadow: 0 0 14px var(--cyan);
+      }
+
+      .console-row {
+        padding: 10px 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .console-row strong {
+        color: var(--text);
+        font-size: 12px;
+      }
+
+      .console-note {
+        margin: 13px 0 0;
+        padding-top: 13px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .trust-strip {
+        border-block: 1px solid rgb(154 166 186 / 10%);
+        background: rgb(255 255 255 / 1.5%);
+      }
+
+      .trust-inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding-block: 20px;
+      }
+
+      .trust-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: #c1c9d8;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .trust-item + .trust-item {
+        border-left: 1px solid var(--line);
+      }
+
+      .trust-icon {
+        color: var(--cyan);
+        font-size: 16px;
+      }
+
+      .section {
+        padding-block: 92px;
+      }
+
+      .section-alt {
+        border-block: 1px solid rgb(154 166 186 / 8%);
+        background: linear-gradient(180deg, rgb(17 21 32 / 72%), rgb(11 14 22 / 72%));
+      }
+
+      .section-heading {
+        align-items: flex-end;
+        margin-bottom: 30px;
+      }
+
+      .eyebrow {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--cyan);
+      }
+
+      .section h2 {
+        margin: 0;
+        font-size: clamp(30px, 4vw, 44px);
+        font-weight: 850;
+        letter-spacing: -0.045em;
+        line-height: 1.1;
+      }
+
+      .section-intro {
+        max-width: 520px;
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .filter-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        padding: 5px;
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        background: #0c1018;
+      }
+
+      .filter-button {
+        min-height: 36px;
+        padding: 0 12px;
+        border: 0;
+        border-radius: 7px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 11px;
+        font-weight: 750;
+        transition: color 150ms ease, background 150ms ease;
+      }
+
+      .filter-button:hover,
+      .filter-button[aria-pressed="true"] {
+        background: var(--panel-strong);
+        color: var(--cyan);
+      }
+
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .event-card {
+        display: flex;
+        min-height: 280px;
+        flex-direction: column;
+        padding: 21px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: linear-gradient(155deg, rgb(255 255 255 / 3%), transparent 55%), var(--panel);
+        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      }
+
+      .event-card:hover {
+        transform: translateY(-4px);
+        border-color: rgb(88 225 220 / 38%);
+        box-shadow: 0 18px 38px rgb(0 0 0 / 24%);
+      }
+
+      .card-heading {
+        align-items: flex-start;
+      }
+
+      .game-icon {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        flex: 0 0 auto;
+        place-items: center;
+        border: 1px solid rgb(167 139 250 / 28%);
+        border-radius: 12px;
+        background: rgb(167 139 250 / 9%);
+        color: var(--purple);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+      }
+
+      .status-badge {
+        padding: 6px 9px;
+        border: 1px solid rgb(182 243 107 / 24%);
+        border-radius: 999px;
+        background: rgb(182 243 107 / 7%);
+        color: var(--green);
+        font-size: 9px;
+        font-weight: 850;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .event-card h3 {
+        margin: 20px 0 7px;
+        font-size: 19px;
+        letter-spacing: -0.025em;
+      }
+
+      .event-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .event-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .event-meta span {
+        padding: 6px 9px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        color: #c4ccda;
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: auto;
+        padding-top: 21px;
+        color: var(--cyan);
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .card-link:hover {
+        color: #a0fff9;
+      }
+
+      .empty-state {
+        grid-column: 1 / -1;
+        padding: 34px;
+        border: 1px dashed var(--line);
+        border-radius: 14px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .step-card {
+        padding: 23px;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        background: rgb(17 21 32 / 72%);
+      }
+
+      .step-number {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border: 1px solid rgb(88 225 220 / 30%);
+        border-radius: 10px;
+        background: rgb(88 225 220 / 8%);
+        color: var(--cyan);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .step-card h3 {
+        margin: 18px 0 7px;
+        font-size: 17px;
+      }
+
+      .step-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .leaderboard {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        background: var(--panel);
+      }
+
+      .leaderboard-head,
+      .leaderboard-row {
+        display: grid;
+        grid-template-columns: 0.55fr 2fr 1fr 1fr;
+        gap: 12px;
+        align-items: center;
+        padding: 15px 20px;
+      }
+
+      .leaderboard-head {
+        background: rgb(255 255 255 / 3%);
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .leaderboard-empty {
+        padding: 34px 20px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .faq-item {
+        align-self: start;
+        padding: 17px 18px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--panel);
+      }
+
+      .faq-item summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 750;
+        list-style: none;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-item summary::after {
+        color: var(--cyan);
+        content: "+";
+        font-size: 18px;
+      }
+
+      .faq-item[open] summary::after {
+        content: "−";
+      }
+
+      .faq-item p {
+        margin: 13px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .community-panel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 26px;
+        padding: clamp(24px, 5vw, 44px);
+        border: 1px solid rgb(88 225 220 / 23%);
+        border-radius: 20px;
+        background:
+          radial-gradient(ellipse at 90% 40%, rgb(167 139 250 / 17%), transparent 40%),
+          linear-gradient(110deg, rgb(88 225 220 / 8%), transparent 60%),
+          var(--panel);
+      }
+
+      .community-panel h2 {
+        max-width: 620px;
+      }
+
+      .community-panel p {
+        max-width: 570px;
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .site-footer {
+        padding: 26px 0;
+        border-top: 1px solid rgb(154 166 186 / 10%);
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .footer-brand {
+        color: var(--text);
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      @media (max-width: 960px) {
+        .primary-nav {
+          gap: 0;
+        }
+
+        .primary-nav a {
+          padding-inline: 8px;
+          font-size: 12px;
+        }
+
+        .header-cta {
+          padding-inline: 12px;
+          font-size: 12px;
+        }
+
+        .hero-grid {
+          grid-template-columns: minmax(0, 1fr) minmax(300px, 0.85fr);
+          gap: 30px;
+        }
+
+        .event-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .container {
+          width: min(var(--max-width), calc(100% - 36px));
+        }
+
+        .header-inner {
+          min-height: 68px;
+        }
+
+        .header-cta {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: inline-flex;
+        }
+
+        .primary-nav {
+          position: absolute;
+          top: calc(100% + 1px);
+          right: 0;
+          left: 0;
+          display: none;
+          flex-direction: column;
+          align-items: stretch;
+          padding: 12px 18px 18px;
+          border-bottom: 1px solid var(--line);
+          background: #0c1018;
+          box-shadow: 0 20px 28px rgb(0 0 0 / 28%);
+        }
+
+        .primary-nav.is-open {
+          display: flex;
+        }
+
+        .primary-nav a {
+          padding: 13px 12px;
+          font-size: 14px;
+        }
+
+        .hero {
+          padding: 70px 0 54px;
+        }
+
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 42px;
+        }
+
+        .hero-console {
+          max-width: 540px;
+        }
+
+        .hero::before {
+          top: 230px;
+          right: -260px;
+          width: 420px;
+          height: 420px;
+        }
+
+        .section {
+          padding-block: 68px;
+        }
+
+        .section-heading {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .filter-list {
+          width: 100%;
+        }
+
+        .filter-button {
+          flex: 1 1 auto;
+        }
+
+        .trust-item {
+          flex-direction: column;
+          gap: 5px;
+          font-size: 10px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .event-grid,
+        .steps-grid,
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: clamp(40px, 12vw, 58px);
+        }
+
+        .hero-description {
+          font-size: 15px;
+        }
+
+        .hero-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .hero-actions .button {
+          width: 100%;
+        }
+
+        .feature-list {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .hero-console {
+          padding: 16px;
+        }
+
+        .map-art {
+          min-height: 190px;
+        }
+
+        .community-panel {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .community-panel .button {
+          width: 100%;
+        }
+
+        .leaderboard-head,
+        .leaderboard-row {
+          grid-template-columns: 0.45fr 1.4fr 0.8fr 0.8fr;
+          gap: 7px;
+          padding-inline: 12px;
+          font-size: 10px;
+        }
+
+        .footer-bottom {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Gaming Hub home">
+          <span class="brand-mark" aria-hidden="true">GH</span>
+          <span>
+            <span class="brand-name">Gaming Hub</span>
+            <span class="brand-caption">Pakistan // PUBG Mobile</span>
+          </span>
+        </a>
+
+        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+          <a href="#events">Tournaments</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#leaderboard">Leaderboard</a>
+          <a href="#faq">FAQ</a>
+          <a href="#community">About</a>
+        </nav>
+
+        <a class="header-cta" href="#events">
+          Explore events <span aria-hidden="true">↗</span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="live-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              Made for Pakistan's PUBG Mobile community
+            </div>
+            <h1 id="hero-title">
+              Your next drop.<br />
+              <span class="gradient-text">Your next win.</span>
+            </h1>
+            <p class="hero-description">
+              Find your squad, join daily scrims, and take on custom rooms and cash prize events.
+              Your next match starts here.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#events">Find your tournament <span aria-hidden="true">→</span></a>
+              <a class="button button-secondary" href="#how-it-works">How it works</a>
+            </div>
+            <ul class="feature-list" aria-label="Gaming Hub features">
+              <li><span class="check" aria-hidden="true">✓</span> Daily scrims</li>
+              <li><span class="check" aria-hidden="true">✓</span> Custom rooms</li>
+              <li><span class="check" aria-hidden="true">✓</span> Cash prize events</li>
+            </ul>
+          </div>
+
+          <aside class="hero-console" aria-label="Gaming Hub event preview">
+            <div class="console-top">
+              <h2 class="console-title">Match lobby // PK</h2>
+              <span class="console-live"><span class="status-dot" aria-hidden="true"></span> HUB ONLINE</span>
+            </div>
+            <div class="map-art" aria-hidden="true">
+              <span class="map-ring"></span>
+              <span class="map-center">GH</span>
+              <span class="map-pin"></span>
+              <span class="map-pin pin-two"></span>
+            </div>
+            <div class="console-row">
+              <span>Next room</span>
+              <strong>Schedule coming soon</strong>
+            </div>
+            <div class="console-row">
+              <span>Format</span>
+              <strong>Solo · Duo · Squad</strong>
+            </div>
+            <p class="console-note">Event times and room details will be posted with each tournament announcement.</p>
+          </aside>
+        </div>
+      </section>
+
+      <div class="trust-strip" aria-label="Tournament platform highlights">
+        <div class="container trust-inner">
+          <div class="trust-item"><span class="trust-icon" aria-hidden="true">◈</span> Pakistan community</div>
+          <div class="trust-item"><span class="trust-icon" aria-hidden="true">⌁</span> All squad sizes</div>
+          <div class="trust-item"><span class="trust-icon" aria-hidden="true">✦</span> Competitive play</div>
+        </div>
+      </div>
+
+      <section class="section" id="events" aria-labelledby="events-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">// Find your lobby</span>
+              <h2 id="events-title">Pick your next match</h2>
+              <p class="section-intro">
+                Scrim with your squad or compete in a custom room. Event schedules and prize details
+                will be shared when registrations open.
+              </p>
+            </div>
+            <div class="filter-list" role="group" aria-label="Filter tournaments">
+              <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All events</button>
+              <button class="filter-button" type="button" data-filter="scrim" aria-pressed="false">Scrims</button>
+              <button class="filter-button" type="button" data-filter="custom" aria-pressed="false">Custom rooms</button>
+              <button class="filter-button" type="button" data-filter="cash" aria-pressed="false">Cash events</button>
+            </div>
+          </div>
+
+          <div class="event-grid" id="event-grid">
+            <article class="event-card" data-category="scrim">
+              <div class="card-heading">
+                <span class="game-icon" aria-hidden="true">GH</span>
+                <span class="status-badge">Schedule soon</span>
+              </div>
+              <h3>Daily Squad Scrims</h3>
+              <p>Get consistent practice with your team in organized PUBG Mobile scrims.</p>
+              <div class="event-meta">
+                <span>Squad</span><span>Daily format</span><span>Practice</span>
+              </div>
+              <a class="card-link" href="#how-it-works">See how to join <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="event-card" data-category="custom">
+              <div class="card-heading">
+                <span class="game-icon" aria-hidden="true">GH</span>
+                <span class="status-badge">Schedule soon</span>
+              </div>
+              <h3>Custom Room Showdown</h3>
+              <p>Drop into a private room and test your rotations, teamwork, and end-game calls.</p>
+              <div class="event-meta">
+                <span>Solo / Duo / Squad</span><span>Custom room</span>
+              </div>
+              <a class="card-link" href="#how-it-works">See how to join <span aria-hidden="true">→</span></a>
+            </article>
+
+            <article class="event-card" data-category="cash">
+              <div class="card-heading">
+                <span class="game-icon" aria-hidden="true">GH</span>
+                <span class="status-badge">Details soon</span>
+              </div>
+              <h3>Weekend Cash Cup</h3>
+              <p>Compete for cash prizes in announced events. Check each event's rules and terms before joining.</p>
+              <div class="event-meta">
+                <span>Squad</span><span>Prize event</span><span>Rules apply</span>
+              </div>
+              <a class="card-link" href="#how-it-works">See how to join <span aria-hidden="true">→</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="how-it-works" aria-labelledby="how-title">
+        <div class="container">
+          <span class="eyebrow">// Queue up in three steps</span>
+          <h2 id="how-title">From squad to start zone</h2>
+          <p class="section-intro">
+            Keep an eye on event announcements for opening dates, entry requirements, and room instructions.
+          </p>
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-number">01</span>
+              <h3>Choose an event</h3>
+              <p>Pick a scrim or custom room that matches your squad size and preferred format.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">02</span>
+              <h3>Read the rules</h3>
+              <p>Review the schedule, eligibility, scoring, and prize terms in the event announcement.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">03</span>
+              <h3>Get match-ready</h3>
+              <p>Follow the published check-in and room instructions, then play fair and give it your all.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="leaderboard" aria-labelledby="leaderboard-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">// Earn your place</span>
+              <h2 id="leaderboard-title">Leaderboard</h2>
+              <p class="section-intro">Standings will appear here after the first scored event.</p>
+            </div>
+          </div>
+          <div class="leaderboard" role="table" aria-label="Tournament leaderboard">
+            <div class="leaderboard-head" role="row">
+              <span role="columnheader">Rank</span>
+              <span role="columnheader">Player / Squad</span>
+              <span role="columnheader">Events</span>
+              <span role="columnheader">Points</span>
+            </div>
+            <div class="leaderboard-empty" role="row">
+              Standings are not available yet. Check back after the first tournament.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <span class="eyebrow">// Quick answers</span>
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <div class="faq-grid">
+            <details class="faq-item">
+              <summary>Who can join Gaming Hub events?</summary>
+              <p>Event eligibility can vary. Check the rules published with each event before registering.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How do I get a room ID and password?</summary>
+              <p>Room access instructions should be provided in the official announcement for that event.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Are cash prizes guaranteed?</summary>
+              <p>Prize availability and terms depend on the event. Refer to its published rules; no prize is guaranteed by this preview site.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Can I join without a full squad?</summary>
+              <p>Some events may support solo or duo entries. Check the format listed on each event.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="community" aria-labelledby="community-title">
+        <div class="container">
+          <div class="community-panel">
+            <div>
+              <span class="eyebrow">// The next lobby is yours</span>
+              <h2 id="community-title">Ready to play with the community?</h2>
+              <p>
+                Tournament announcements, registration links, and official contact details can be added here
+                when the Gaming Hub channels are ready.
+              </p>
+            </div>
+            <a class="button" href="#events">Browse event formats <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-bottom">
+        <a class="footer-brand" href="#home">Gaming Hub</a>
+        <p>Pakistan's PUBG Mobile tournament community.</p>
+        <p>Event schedules and registrations will be announced here.</p>
+      </div>
+    </footer>
+
+    <script>
+      const menuButton = document.querySelector(".menu-toggle");
+      const navigation = document.querySelector("#primary-nav");
+
+      if (menuButton && navigation) {
+        const closeMenu = () => {
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation menu");
+          navigation.classList.remove("is-open");
+        };
+
+        menuButton.addEventListener("click", () => {
+          const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+          menuButton.setAttribute("aria-expanded", String(!isOpen));
+          menuButton.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+          navigation.classList.toggle("is-open", !isOpen);
+        });
+
+        navigation.addEventListener("click", (event) => {
+          if (event.target instanceof HTMLAnchorElement) closeMenu();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeMenu();
+        });
+      }
+
+      const filterButtons = document.querySelectorAll(".filter-button");
+      const eventCards = document.querySelectorAll(".event-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const filter = button.dataset.filter;
+
+          filterButtons.forEach((filterButton) => {
+            filterButton.setAttribute("aria-pressed", String(filterButton === button));
+          });
+
+          eventCards.forEach((card) => {
+            card.hidden = filter !== "all" && card.dataset.category !== filter;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
